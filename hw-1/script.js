@@ -25,25 +25,26 @@ function IS_EVEN(SUM_PRICE_WITHOUT_COINS) {
 }
     console.log(IS_EVEN(SUM_PRICE_WITHOUT_COINS));
 
-const CHANGE_FROM_500 = (500 - SUM_PRICE).toFixed(2);
-    console.log(CHANGE_FROM_500);
+const buyerPayed = 500;
+const changeFromPayed = (buyerPayed - SUM_PRICE).toFixed(2);
+    console.log(changeFromPayed);
 
 const MIDDLE_PRICE_ROUNDED_TO_SECOND_CHARACTER = (SUM_PRICE/ 3).toFixed(2);
     console.log(MIDDLE_PRICE_ROUNDED_TO_SECOND_CHARACTER);
 
-const CUSTOMER_DISCOUNT = Math.trunc(Math.random()*100);
-    console.log(CUSTOMER_DISCOUNT + "%");
+const customerDiscount = Math.trunc(Math.random()*100);
+    console.log(customerDiscount + "%");
 
-const CUSTOMER_PRICE_WITH_DISCOUNT = (SUM_PRICE - (CUSTOMER_DISCOUNT/100) * SUM_PRICE).toFixed(2);
-    console.log(CUSTOMER_PRICE_WITH_DISCOUNT);
+const customerPriceWithDiscount = (SUM_PRICE - (customerDiscount/100) * SUM_PRICE).toFixed(2);
+    console.log(customerPriceWithDiscount);
 
-const GOODS_COST = Math.round(SUM_PRICE/2);
-    console.log(GOODS_COST);
+const goodsCost = Math.round(SUM_PRICE/2);
+    console.log(goodsCost);
 
-const PROFIT = (CUSTOMER_PRICE_WITH_DISCOUNT- GOODS_COST).toFixed(2);
-    console.log(PROFIT);
+const profit = (customerPriceWithDiscount- goodsCost).toFixed(2);
+    console.log(profit);
 
 
 
-console.log(`Максимальна ціна: ${MAX_PRICE}, \n Мінімальна ціна: ${MIN_PRICE}, \n Вартість всіх товарів: ${SUM_PRICE}, \n Сума всіх товарів без копійок: ${SUM_PRICE_WITHOUT_COINS}, \n Сума всіх товарів заокруглена до сотень: ${SUM_PRICE_ROUNDED_TO_HUNDRED}, \n Чи парна сума всіх товарів без копійок: ${IS_EVEN(SUM_PRICE_WITHOUT_COINS)}, \n Решта з 500грн: ${CHANGE_FROM_500}, \n Середнє арифметичне усіх цін: ${MIDDLE_PRICE_ROUNDED_TO_SECOND_CHARACTER}, \n Знижка Покупця: ${CUSTOMER_DISCOUNT + "%"}, \n Сума до сплати зі знижкою: ${CUSTOMER_PRICE_WITH_DISCOUNT}, \n Собівартість товарів: ${GOODS_COST}, \n Чистий прибуток: ${PROFIT}`);
-document.writeln(`Максимальна ціна: ${MAX_PRICE}, \n Мінімальна ціна: ${MIN_PRICE}, \n Вартість всіх товарів: ${SUM_PRICE}, \n Сума всіх товарів без копійок: ${SUM_PRICE_WITHOUT_COINS}, \n Сума всіх товарів заокруглена до сотень: ${SUM_PRICE_ROUNDED_TO_HUNDRED}, \n Чи парна сума всіх товарів без копійок: ${IS_EVEN(SUM_PRICE_WITHOUT_COINS)}, \n Решта з 500грн: ${CHANGE_FROM_500}, \n Середнє арифметичне усіх цін: ${MIDDLE_PRICE_ROUNDED_TO_SECOND_CHARACTER}, \n Знижка Покупця: ${CUSTOMER_DISCOUNT + "%"}, \n Сума до сплати зі знижкою: ${CUSTOMER_PRICE_WITH_DISCOUNT}, \n Собівартість товарів: ${GOODS_COST}, \n Чистий прибуток: ${PROFIT}`);
+console.log(`Максимальна ціна: ${MAX_PRICE}, \n Мінімальна ціна: ${MIN_PRICE}, \n Вартість всіх товарів: ${SUM_PRICE}, \n Сума всіх товарів без копійок: ${SUM_PRICE_WITHOUT_COINS}, \n Сума всіх товарів заокруглена до сотень: ${SUM_PRICE_ROUNDED_TO_HUNDRED}, \n Чи парна сума всіх товарів без копійок: ${IS_EVEN(SUM_PRICE_WITHOUT_COINS)}, \n Решта з ${buyerPayed}грн: ${changeFromPayed}, \n Середнє арифметичне усіх цін: ${MIDDLE_PRICE_ROUNDED_TO_SECOND_CHARACTER}, \n Знижка Покупця: ${customerDiscount + "%"}, \n Сума до сплати зі знижкою: ${customerPriceWithDiscount}, \n Собівартість товарів: ${goodsCost}, \n Чистий прибуток: ${profit}`);
+document.writeln(`Максимальна ціна: ${MAX_PRICE}, \n Мінімальна ціна: ${MIN_PRICE}, \n Вартість всіх товарів: ${SUM_PRICE}, \n Сума всіх товарів без копійок: ${SUM_PRICE_WITHOUT_COINS}, \n Сума всіх товарів заокруглена до сотень: ${SUM_PRICE_ROUNDED_TO_HUNDRED}, \n Чи парна сума всіх товарів без копійок: ${IS_EVEN(SUM_PRICE_WITHOUT_COINS)}, \n Решта з ${buyerPayed}грн: ${changeFromPayed}, \n Середнє арифметичне усіх цін: ${MIDDLE_PRICE_ROUNDED_TO_SECOND_CHARACTER}, \n Знижка Покупця: ${customerDiscount + "%"}, \n Сума до сплати зі знижкою: ${customerPriceWithDiscount}, \n Собівартість товарів: ${goodsCost}, \n Чистий прибуток: ${profit}`);
