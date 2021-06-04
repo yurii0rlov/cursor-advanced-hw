@@ -9,7 +9,8 @@
 }
 body:hover{
     background-image:url(img/LOGO.png);
+    background-size: 4%;
     background-repeat: no-repeat;
     background-position-x: center;
-    background-position-y: 90%;
+    background-position-y: 100%;
 }
