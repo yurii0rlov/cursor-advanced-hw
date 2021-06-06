@@ -1,13 +1,13 @@
 let firstNumber = +prompt("Type the first number", 0);
 
-while(isNaN(firstNumber) || !Number.isInteger(firstNumber)){
+while(isNaN(firstNumber) || !Number.isInteger(firstNumber) || firstNumber == ''){
   alert(`"${firstNumber}" - is not a number, please try again`);
   firstNumber = +prompt("Type the first number", 0);
 }
 
 let secondNumber = +prompt("Type the first number", 0);
 
-while(isNaN(secondNumber) || !Number.isInteger(secondNumber)){
+while(isNaN(secondNumber) || !Number.isInteger(secondNumber) || secondNumber == ''){
   alert(`"${secondNumber}" - is not a number, please try again`);
   secondNumber = +prompt("Type the first number", 0);
 }
