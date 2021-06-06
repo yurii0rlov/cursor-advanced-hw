@@ -1,13 +1,17 @@
-let firstNumber;
-let secondNumber;
-let answer = 0;
+let firstNumber = +prompt("Type the first number", 0);
 
-for (firstNumber = +prompt("Type the first number", 0); !Number.isInteger(+firstNumber); firstNumber = +prompt("Type the first number", 0)) {
-        alert(`"${firstNumber}" - is not a number, please try again`);
-  }
-  for (secondNumber = +prompt("Type the second number", 0);!Number.isInteger(+secondNumber); secondNumber = +prompt("Type the second number", 0)) {
-    alert(`"${secondNumber}" - is not a number, please try again`);
-  }
+while(isNaN(firstNumber) || !Number.isInteger(firstNumber)){
+  alert(`"${firstNumber}" - is not a number, please try again`);
+  firstNumber = +prompt("Type the first number", 0);
+}
+
+let secondNumber = +prompt("Type the first number", 0);
+
+while(isNaN(secondNumber) || !Number.isInteger(secondNumber)){
+  alert(`"${secondNumber}" - is not a number, please try again`);
+  secondNumber = +prompt("Type the first number", 0);
+}
+
 const evenNumbersPass = confirm("Do you wanna skip even numbers ?");
 
 console.log(`The first number is ${firstNumber}
@@ -21,16 +25,11 @@ if(secondNumber < firstNumber){
   [secondNumber, firstNumber] = [firstNumber, secondNumber];
 }
 
+let answer = 0;
 for(firstNumber;firstNumber <= secondNumber; firstNumber++){
-    if(evenNumbersPass){
-        if(firstNumber % 2 != 0){
-        answer += firstNumber;
-        }
-    }
-    else{
-    answer += firstNumber;
-        }
-    }
+  if(evenNumbersPass && firstNumber % 2 == 0) continue;
+  answer += firstNumber;
+}
 
 console.log(`So, the answer is ${answer}`);
 document.writeln(`So, the answer is ${answer}`);
