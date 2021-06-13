@@ -23,6 +23,9 @@ function mathPow (number, pow){
     for(i=1;i<pow;i++){
         result = result * number;
     }
+    if(pow === 0){
+      result = 1;
+    }
     return result;
 }
 
@@ -204,7 +207,7 @@ function countLetterResult(){
     alert(`Символів у слові : ${countLetter(prompt("Введіть символ для підрахунку", "a").toLowerCase(),(prompt("Введіть слово", "Alarm").toLowerCase()))}`);
 }
 function convertCurrencyResult(){
-    alert(`Після переводу валют отримуємо : ${convertCurrency(prompt("Введіть суму з ідентифікатором валюти ($ або UAH)", "1000UAH"))}`);
+    alert(`Після переводу валют отримуємо : ${convertCurrency(prompt("Введіть суму з ідентифікатором валюти ($ або UAH)", "1000UAH").toUpperCase)}`);
 }
 function getRandomPasswordResult(){
     alert(`Ваш пароль : ${getRandomPassword(+prompt("Введіть потрібну кількість символів", 8))}`);
