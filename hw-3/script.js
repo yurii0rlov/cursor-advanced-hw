@@ -2,7 +2,7 @@
 
 function getMaxDigit(number){
     let maxDigit = +number.charAt(0);
-    if(isNaN(number) || !Number.isInteger(number) || number === ''){
+    if(isNaN(number) || !Number.isInteger(+number) || number === ''){
       return ("ERROR, хибний ввід, спробуйте ще раз");
       }
     for(i=1;i<=number.length;i++){
@@ -16,15 +16,18 @@ function getMaxDigit(number){
 //2. Створити функцію, яка визначає ступінь числа
 
 function mathPow (number, pow){
-  if(isNaN(number || pow) || !Number.isInteger(number || pow) || (number || pow) === ''){
+  if(isNaN(number || pow) || !Number.isInteger(+number && +pow) || (number || pow) === ''){
     return ("ERROR, хибний ввід, спробуйте ще раз");
     }
-    let result = number;
-    for(i=1;i<pow;i++){
+    let result = 1;
+    for(i=1;i<=Math.abs(+pow);i++){
         result = result * number;
     }
     if(pow === 0){
       result = 1;
+    }
+    if(String(pow).includes("-")){
+      result = 1 / result;
     }
     return result;
 }
@@ -48,7 +51,7 @@ function taxCalculator(salary){
   if(isNaN(salary) || !Number.isInteger(salary) || salary === ''){
   return ("ERROR, хибний ввід - спробуйте ще раз");
   }
-  const cleanCash = salary - (salary * tax) / 100;
+  const cleanCash = (salary - (salary * tax) / 100).toFixed(2);
   return cleanCash;
 }
 
@@ -58,11 +61,14 @@ function getRandomNumber (fromNumber, toNumber){
   if(isNaN(fromNumber || toNumber) || !Number.isInteger(fromNumber || toNumber) || (fromNumber || toNumber) === ''){
     return ("ERROR, хибний ввід - спробуйте ще раз");
   }
+  let randomNumber = 0;
+  console.log(toNumber);
+  console.log(fromNumber);
   if(toNumber < fromNumber){
     [fromNumber, toNumber] = [toNumber, fromNumber];
   }
   do{
-    randomNumber = fromNumber + Math.trunc(Math.random()*1000000);
+    randomNumber = fromNumber + Math.trunc(Math.random()*10000);
   }
   while(randomNumber > toNumber);
   return randomNumber;
@@ -90,11 +96,11 @@ function convertCurrency(cash){
   let convertedMoney = 0;
   switch(true){
     case (cash.includes("UAH") && !cash.includes("$")): {
-      convertedMoney = Math.trunc(parseInt(cash) / currency) + '$';
+      convertedMoney = (parseInt(cash) / currency).toFixed(2) + '$';
       break;
     }
     case (cash.includes("$") && !cash.includes("UAH")): {
-      convertedMoney = Math.trunc(parseInt(cash) * currency) + 'грн.'; 
+      convertedMoney = (parseInt(cash) * currency).toFixed(2) + 'грн.'; 
       break;
     }
     case (!cash.includes("$") || !cash.includes("UAH")): {
@@ -201,13 +207,13 @@ function taxCalculatorResult(){
     alert(`Після утримання податку ви отримаєте : ${taxCalculator(+prompt("Введіть заробітну плату", 1000))} грн.`);
 }
 function getRandomNumberResult(){
-    alert(`Результат : ${getRandomNumber(prompt("Введіть перше число", 1),(prompt("Введіть друге число", 10)))}`); 
+    alert(`Результат : ${getRandomNumber(+prompt("Введіть перше число", 1),(+prompt("Введіть друге число", 10)))}`); 
 }
 function countLetterResult(){
     alert(`Символів у слові : ${countLetter(prompt("Введіть символ для підрахунку", "a").toLowerCase(),(prompt("Введіть слово", "Alarm").toLowerCase()))}`);
 }
 function convertCurrencyResult(){
-    alert(`Після переводу валют отримуємо : ${convertCurrency(prompt("Введіть суму з ідентифікатором валюти ($ або UAH)", "1000UAH").toUpperCase)}`);
+    alert(`Після переводу валют отримуємо : ${convertCurrency(prompt("Введіть суму з ідентифікатором валюти ($ або UAH)", "1000UAH").toUpperCase())}`);
 }
 function getRandomPasswordResult(){
     alert(`Ваш пароль : ${getRandomPassword(+prompt("Введіть потрібну кількість символів", 8))}`);
