@@ -222,7 +222,7 @@ function deleteLettersResult(){
     alert(`Результат : ${deleteLetters(prompt("Введіть рядок символів", "Ababagalamaga").toLowerCase(),(prompt("Введіть символ який потрібно прибрати", "a").toLowerCase()))}`);
 }
 function isPalyndromResult(){
-    alert(`Слово паліндром ? - : ${isPalyndrom(prompt("Введіть слово", "Тенет").toLowerCase())}`);
+    alert(`Слово паліндром ? - : ${isPalyndrom((prompt("Введіть слово", "Тенет").toLowerCase()).replace(/\s+/g,''))}`);
 }
 function deleteDuplicateLetterResult(){
     alert(`Результат : ${deleteDuplicateLetter(prompt("Введіть стрічку", "Марка").toLowerCase())}`);
