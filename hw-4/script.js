@@ -45,7 +45,7 @@ console.log(studentsRated);
 const groupsRated = getProjectsWithMarks(groupsWithThemes);
 function getProjectsWithMarks(){
   const groupsProjectsWithMarks = [];
-  let groupMark = 0;
+  const groupMark = 0;
   for(let i = 0; i < groupsWithThemes.length; i++){
     do{
       groupMark = Math.trunc(Math.random()*10);
