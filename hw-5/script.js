@@ -3,50 +3,35 @@
 
 function getRandomArray(length, min, max){
 
-  if (isNaN(length || min || max) || !Number.isInteger(length || min || max) || (length || min || max) === ''){
-    return ("ERROR, хибний ввід - спробуйте ще раз");
-  }
-
   let array = [];
   let number = 0;
 
- for(let i = 0; i < length; i++){
+ for(let i = 0; i < length; i++) {
     do {
     number = Math.floor((Math.random() * 10000 - 1000));
-    }
-
-    while(number > max || number < min);
-
+    }while(number > max || number < min)
     array.push(number);
   }
 
   return array;
 }
 
-const length = +prompt("Введіть довжину масиву", 10);
-const min = +prompt("Введіть мінімальне значення масиву", 1);
-const max = +prompt("Введіть максимальне значення масиву", 10);
-
-const firstFunctionResult = getRandomArray(length, min, max);
-console.log(firstFunctionResult);
-
 // Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів.
 
-function getAverage(firstFunctionResult){
+function getAverage(randomArrayResult){
   let numbersSum = 0;
-  firstFunctionResult.forEach(number => {
+  randomArrayResult.forEach(number => {
     numbersSum += number;
   })
-  return numbersSum/firstFunctionResult.length;
+  return numbersSum/randomArrayResult.length;
 } 
-console.log(getAverage(firstFunctionResult));
 
 // Створіть функцію getMedian(...numbers) – яка рахує медіану всіх переданих в неї аргументів.
 
-function getMedian(firstFunctionResult){
+function getMedian(randomArrayResult){
   let median = 0;
 
-  let sortedArray = firstFunctionResult.map((number) => {
+  let sortedArray = randomArrayResult.map((number) => {
     return number;
   })
 
@@ -58,13 +43,12 @@ function getMedian(firstFunctionResult){
   
   return median;
 }
-console.log(getMedian(firstFunctionResult));
 
 //Створіть функцію – яка фільтрує парні числа передані як аргументи функції
 
-function filterEvenNumbers(firstFunctionResult){
+function filterEvenNumbers(randomArrayResult){
 
-  let onlyDouble = firstFunctionResult.filter((number) => {
+  let onlyDouble = randomArrayResult.filter((number) => {
     if(number % 2 !== 0){
       return number;
     }
@@ -72,25 +56,22 @@ function filterEvenNumbers(firstFunctionResult){
   return onlyDouble;
 }
 
-console.log(filterEvenNumbers(firstFunctionResult));
-
 //Створіть функцію  – яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
 
-function getDividedByFive(firstFunctionResult){
-  let divideOnFive = firstFunctionResult.filter((number) => {
+function getDividedByFive(randomArrayResult){
+  let divideOnFive = randomArrayResult.filter((number) => {
     if(number % 5 === 0){
       return number;
     }
   })
   return divideOnFive;
 }
-console.log(getDividedByFive(firstFunctionResult));
 
 // Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0
 
-function countPositiveNumbers(firstFunctionResult){
+function countPositiveNumbers(randomArrayResult){
   let positiveNumbers = 0;
-  firstFunctionResult.forEach((number) => {
+  randomArrayResult.forEach((number) => {
     if(number >= 0){
       positiveNumbers++;
     }
@@ -98,36 +79,107 @@ function countPositiveNumbers(firstFunctionResult){
   return positiveNumbers;
 }
 
-console.log(countPositiveNumbers(firstFunctionResult));
+function getRandomArrayOperationsResults() {
+  const length = +prompt("Введіть довжину масиву", 10);
+  const min = +prompt("Введіть мінімальне значення масиву", 1);
+  const max = +prompt("Введіть максимальне значення масиву", 10);
+
+  if(length <= 0){
+    alert("ERROR, довжина масиву не може бути менша 1");
+    return;
+  }
+
+  if (isNaN(length && min && max)){
+    alert("ERROR, хибний ввід - спробуйте ще раз");
+    return;
+  }
+
+  const firstFunctionResult = getRandomArray(length, min, max);
+  alert(`
+Ваш масив чисел : ${firstFunctionResult}
+Середнє арифметичне масиву: ${getAverage(firstFunctionResult)}
+Медіана масиву: ${getMedian(firstFunctionResult)}
+Масив непарних чисел: ${filterEvenNumbers(firstFunctionResult)}
+Масив чисел які діляться на 5: ${getDividedByFive(firstFunctionResult)}
+Кількість чисел більших за 0: ${countPositiveNumbers(firstFunctionResult)}
+`);
+  console.log("Масив випадкових чисел:");
+  console.log(firstFunctionResult);
+  console.log("Середнє арифметичне масиву:");
+  console.log(getAverage(firstFunctionResult));
+  console.log("Медіана масиву:");
+  console.log(getMedian(firstFunctionResult));
+  console.log("Масив непарних чисел:");
+  console.log(filterEvenNumbers(firstFunctionResult));
+  console.log("Масив чисел які діляться на 5:");
+  console.log(getDividedByFive(firstFunctionResult));
+  console.log("Кількість чисел більших за 0:");
+  console.log(countPositiveNumbers(firstFunctionResult));
+}
 
 // Створіть функцію – яка вираховує моду всіх переданих в неї аргументів.
 
-function getModa(firstFunctionResult){
+// function getModa(firstFunctionResult){
 
-  let sortArray = firstFunctionResult.map((number) => {
-    return number;
-  })
+//   let sortArray = firstFunctionResult.map((number) => {
+//     return number;
+//   })
 
-  sortArray.sort((a, b) => a - b);
-  let maxNumberCount = 1;
-  let modaArray = [];
-  sortArray.forEach((number, i, arr) => {
-    if(number === arr[i + 1]){
-      modaArray.push(number, arr[i + 1]);
-      maxNumberCount++;
-    }
+//   sortArray.sort((a, b) => a - b);
+//   let maxNumberCount = 1;
+//   let modaArray = [];
+//   sortArray.forEach((number, i, arr) => {
+//     if(number === arr[i + 1]){
+//       modaArray.push(number, arr[i + 1]);
+//       maxNumberCount++;
+//     }
 
-  })
-  console.log(maxNumberCount);
-    console.log(modaArray);
-}
+//   })
+//   console.log(maxNumberCount);
+//     console.log(modaArray);
+// }
 
-console.log(getModa(firstFunctionResult));
+// console.log(getModa(firstFunctionResult));
 
 
 // Створіть функцію – яка 1) розіб'є фразу на слова, 2) замінить погані слова на зірочки (*)
 
 function replaceBadWords(string){
   newString = string.split(" ");
-  
+  let rightString = [];
+  const badwords = ["shit", "fuck"];
+  newString.forEach(word => {
+    for(let i = 0; i <= badwords.length; i++){
+      if((word.toLowerCase()).includes(badwords[i])){
+      word = (word.toLowerCase()).replace(badwords[i], "****");
+      }
+    }
+    rightString.push(word);
+  })
+  return rightString.join(" ");
+}
+
+function replaceBadWordsResult(){
+  alert(replaceBadWords(prompt("Type your string with bad words", "Fuck you, fucking piece of shit")));
+}
+
+
+// Створіть функцію, яка розбиває кожне слово на умовні склади по 3 букви. Якщо букв менше трьох – не розбиває.
+// Пробіли завжди видаляються. Рядок приводится до нижнього регістру.
+
+function divideByThree(word){
+  wordArray = (word.toLowerCase()).split("");
+
+  const wordDivideArray = [];
+  const divideSymbols = 3;
+
+  for(let i = 0; i < wordArray.length; i += divideSymbols) {
+    wordDivideArray.push(wordArray.slice(i, i + divideSymbols));
+  }
+  return wordDivideArray;
+}
+
+function divideByThreeResult(){
+  console.log(divideByThree(prompt("Type your word", "Programmer")));
+  alert("Result in console");
 }
