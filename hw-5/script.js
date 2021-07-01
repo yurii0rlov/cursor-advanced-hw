@@ -115,31 +115,51 @@ function getRandomArrayOperationsResults() {
   console.log(getDividedByFive(firstFunctionResult));
   console.log("Кількість чисел більших за 0:");
   console.log(countPositiveNumbers(firstFunctionResult));
+  console.log("Мода числа:");
+  console.log(getModa(firstFunctionResult));
 }
 
 // Створіть функцію – яка вираховує моду всіх переданих в неї аргументів.
 
-// function getModa(firstFunctionResult){
+function getModa(firstFunctionResult){
 
-//   let sortArray = firstFunctionResult.map((number) => {
-//     return number;
-//   })
+  let sortArray = firstFunctionResult.map((number) => {
+    return number;
+  })
 
-//   sortArray.sort((a, b) => a - b);
-//   let maxNumberCount = 1;
-//   let modaArray = [];
-//   sortArray.forEach((number, i, arr) => {
-//     if(number === arr[i + 1]){
-//       modaArray.push(number, arr[i + 1]);
-//       maxNumberCount++;
-//     }
+  sortArray.sort((a, b) => a - b);
+  let modaArray = [];
+  sortArray.forEach((number, i, arr) => {
+    if(number === arr[i + 1]){
+      modaArray.push(number);
+    }
 
-//   })
-//   console.log(maxNumberCount);
-//     console.log(modaArray);
-// }
+  })
+  console.log("modaarray" + modaArray);
 
-// console.log(getModa(firstFunctionResult));
+  let modes = [];
+  let count = [];
+  let maxIndex = 0;
+
+for (i = 0; i < modaArray.length; i++) {
+  let number = modaArray[i];
+    count[number] = (count[number] || 0) + 1;
+
+    if (count[number] > maxIndex) {
+        maxIndex = count[number];
+    }
+  }
+
+for (let i in count) {
+    if (count.hasOwnProperty(i) && count[i] === maxIndex) {
+        modes.push(+i);
+    }
+}
+
+
+return modes;
+}
+
 
 
 // Створіть функцію – яка 1) розіб'є фразу на слова, 2) замінить погані слова на зірочки (*)
@@ -174,7 +194,7 @@ function divideByThree(word){
   const divideSymbols = 3;
 
   for(let i = 0; i < wordArray.length; i += divideSymbols) {
-    wordDivideArray.push(wordArray.slice(i, i + divideSymbols));
+    wordDivideArray.push(wordArray.slice(i, i + divideSymbols).join(""));
   }
   return wordDivideArray;
 }
