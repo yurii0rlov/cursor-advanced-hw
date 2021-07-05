@@ -76,9 +76,12 @@ return studentsNames.sort()
 //Створіть функцію – яка повертає кращого студента зі списку по показнику середньої оцінки.
 
 function getBestStudent(students){
-  let bestStudent;
+  let bestStudent = "";
   let maxMark = 0;
   students.forEach((_student, index) => {
+    if(getAverageMark(index) === maxMark){
+    bestStudent += ", " + students[index].name;
+    }
     if(getAverageMark(index) > maxMark){
       maxMark = getAverageMark(index);
       bestStudent = students[index].name;
