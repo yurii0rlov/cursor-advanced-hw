@@ -1,0 +1,48 @@
+html{
+    background:url(img/background.jpg);
+    background-size: cover;
+}
+
+body,
+html{
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 5%;
+    padding-top: 20%;
+    justify-content: center;
+}
+
+div{
+    font-size: 20pt;
+    padding: 0.5% 2%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    text-align: center;
+    line-height: 2em;
+    border: 1px solid black;
+    border-radius: 5%;
+    background-color: rgba(0, 0, 0, 0.322);
+    color: cornsilk;
+    cursor: help;
+}
+span{
+    font-size: 30pt;
+}
+div + div {
+    margin-left: 1%;
+}
+p{
+    margin-top: 1%;
+    margin-bottom: 0;
+}
+.click{
+    border: 2px solid yellow;
+    background-color: rgba(255, 255, 255, 0.397);
+    transform: scale(1.1);
+}
