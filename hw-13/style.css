@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'star_jediregular';
+    src: url('fonts/starjedi-webfont.woff2') format('woff2'),
+         url('fonts/starjedi-webfont.woff') format('woff'),
+         url('fonts/Starjedi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background-image: url(img/backgroundimage.jpg);
+    background-size: 100%;
+    font-family: 'star_jediregular';
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+.character,
+.planet{
+    background-color: rgba(0, 0, 0, 0.664);
+    color: rgb(255, 255, 255);
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px ridge rgba(50, 75, 220, 0.658);
+    border-radius: 5%;
+    margin: 1rem 2rem;
+    padding: 1rem;
+}
+.planet{
+    align-items: center;
+    width: 10%;
+}
+img{
+    height: 15vw;
+}
+h1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h2,
+h3{
+    color: white;
+    font-weight: normal;
+}
+button,
+input{
+    background-color: rgba(0, 0, 0, 0.616);
+    color: rgb(255, 255, 255);
+    border: 2px ridge rgba(50, 75, 220, 0.658);
+    font-size: 2rem;
+    cursor: pointer;
+    width: auto;
+    border-radius: 1rem;
+}
+input{
+    margin: 0 4rem;
+    text-align: center;
+    outline:none;
+}
+button:hover,
+.character:hover,
+input:hover,
+.planet:hover{
+    border: 2px ridge rgba(255, 0, 0, 0.658);
+    color: rgba(255, 0, 0, 0.658);
+}
