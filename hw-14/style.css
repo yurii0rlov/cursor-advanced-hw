@@ -1,0 +1,42 @@
+body{
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    font-size: 14pt;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.buttonBlock{
+    display: flex;
+    flex-direction: row;
+}
+button{
+    background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    width: 32%;
+    cursor: pointer;
+}
+p{
+    padding: 0 20%;
+    color: rgb(139, 0, 0);
+}
+
+button:hover {
+   background-position: right center;
+   color: #fff;
+   text-decoration: none;
+ }
