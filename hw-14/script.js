@@ -45,6 +45,7 @@ function* newFontGenerator(fontSize) {
 }
 
 const fontGenerator = newFontGenerator(14);
+fontGenerator.next();
 
 document.getElementById('smallerFont').addEventListener('click', function(){
   const div = document.getElementById('generateNumbers');
