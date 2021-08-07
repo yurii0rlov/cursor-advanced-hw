@@ -1,0 +1,14 @@
+#planets,
+.planet{
+    display: flex;
+    flex-direction: row;
+    background: url('../assets/backgroundimage.jpg');
+    background-size: 100%;
+    justify-content: center;
+    color: seashell;
+}
+
+.planet{
+    margin: 1rem;
+    border: 1px solid salmon;
+}
